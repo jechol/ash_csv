@@ -17,16 +17,21 @@ defmodule AshCsv.MixProject do
       start_permanent: Mix.env() == :prod,
       package: package(),
       deps: deps(),
-      preferred_cli_env: [
-        coveralls: :test,
-        "coveralls.github": :test
-      ],
       elixirc_paths: elixirc_paths(Mix.env()),
       docs: &docs/0,
       aliases: aliases(),
       description: @description,
       source_url: "https://github.com/ash-project/ash_csv",
       homepage_url: "https://github.com/ash-project/ash_csv"
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
+        coveralls: :test,
+        "coveralls.github": :test
+      ]
     ]
   end
 

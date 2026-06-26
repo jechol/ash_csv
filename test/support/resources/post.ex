@@ -15,8 +15,31 @@ defmodule AshCsv.Test.Post do
   end
 
   actions do
-    default_accept(:*)
-    defaults([:create, :read, :update, :destroy])
+    default_accept([:title, :score, :public, :unique])
+
+    create :create do
+      primary? true
+    end
+
+    read :read do
+      primary? true
+    end
+
+    update :update do
+      primary? true
+    end
+
+    destroy :destroy do
+      primary? true
+    end
+
+    action :__input_warning_marker, :boolean do
+      argument :__input_warning_marker, :boolean, public?: false
+
+      run fn input, _context ->
+        {:ok, input.arguments.__input_warning_marker}
+      end
+    end
   end
 
   attributes do

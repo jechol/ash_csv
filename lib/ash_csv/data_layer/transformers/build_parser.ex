@@ -129,9 +129,6 @@ defmodule AshCsv.DataLayer.Transformers.BuildParser do
              {:error, error}
          end
 
-         def ash_csv_parse_row([unquote_splicing(func_args)]) do
-           {:error, "Invald row #{inspect([unquote_splicing(func_args)])}"}
-         end
        end
      )}
   end
